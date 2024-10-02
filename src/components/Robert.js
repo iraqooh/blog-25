@@ -1,17 +1,8 @@
-import React from 'react'
-import { Container, Row, Col } from 'react-bootstrap';
+import React from 'react';
+import TaskList from './TaskList';
 
 function Robert() {
-  return (
-    <Container className='mt-5 page'>
-        <Row>
-            <Col>
-                <h2>Mutumba Robert's Contributions</h2>
-                <p>Details of Robert's contributions to the project will be documented here.</p>
-            </Col>
-        </Row>
-    </Container>
-  )
+  return <TaskList assignee="Mutumba Robert" title="Mutumba Robert's Contributions" />;
 }
 
-export default Robert
+export default Robert;

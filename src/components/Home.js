@@ -38,7 +38,7 @@ function Home() {
                 <Card.Img variant="top" src={`${process.env.PUBLIC_URL}/images/robert.png`} alt="Mutumba Robert" />
                 <Card.Body>
                   <Card.Title>Mutumba Robert</Card.Title>
-                  <Card.Text>Engineer</Card.Text>
+                  <Card.Text>Project Leader</Card.Text>
                 </Card.Body>
               </Card>
             </Col>
