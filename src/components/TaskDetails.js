@@ -1,13 +1,17 @@
 import React from 'react';
 import { Container, ListGroup } from 'react-bootstrap';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Navigate } from 'react-router-dom';
 import Spinner from './Spinner';
 
 function TaskDetails() {
   const location = useLocation();
-  const { task } = location.state;
+  const { task } = location.state || {};
 
-  if (!task) return <div><Spinner /></div>;
+  if (!task) return <div><Spinner /> Loading task details...</div>;
+
+  if (!task) {
+    return <Navigate to="/tasks" />;
+  }
 
   return (
     <Container className='my-5'>

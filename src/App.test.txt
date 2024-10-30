@@ -1,0 +1,98 @@
+import React from 'react';
+import { render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
+import App from './App';
+
+describe('App Component', () => {
+
+  test('renders Header and Footer components', () => {
+    render(
+      <MemoryRouter initialEntries={['/']}>
+        <App />
+      </MemoryRouter>
+    );
+
+    expect(screen.getByText(/Automated Exam Grading/i)).toBeInTheDocument();
+    expect(screen.getByText(/COCIS/i)).toBeInTheDocument();
+  });
+
+  test('renders Home component on default route', () => {
+    render(
+      <MemoryRouter initialEntries={['/']}>
+        <App />
+      </MemoryRouter>
+    );
+
+    expect(screen.getByText(/home/i)).toBeInTheDocument();
+  });
+
+  test('renders Tasks component on /tasks route', () => {
+    render(
+      <MemoryRouter initialEntries={['/tasks']}>
+        <App />
+      </MemoryRouter>
+    );
+
+    expect(screen.getByText(/tasks/i)).toBeInTheDocument();
+  });
+
+  test('renders TaskDetails component on /task/:id route', () => {
+    render(
+      <MemoryRouter initialEntries={['/task/1']}>
+        <App />
+      </MemoryRouter>
+    );
+
+    expect(screen.getByText(/task details/i)).toBeInTheDocument();
+  });
+
+  test('renders Abraham component on /abraham route', () => {
+    render(
+      <MemoryRouter initialEntries={['/abraham']}>
+        <App />
+      </MemoryRouter>
+    );
+
+    expect(screen.getByText(/abraham/i)).toBeInTheDocument();
+  });
+
+  test('renders Owen component on /owen route', () => {
+    render(
+      <MemoryRouter initialEntries={['/owen']}>
+        <App />
+      </MemoryRouter>
+    );
+
+    expect(screen.getByText(/owen/i)).toBeInTheDocument();
+  });
+
+  test('renders Robert component on /robert route', () => {
+    render(
+      <MemoryRouter initialEntries={['/robert']}>
+        <App />
+      </MemoryRouter>
+    );
+
+    expect(screen.getByText(/robert/i)).toBeInTheDocument();
+  });
+
+  test('renders Harry component on /harry route', () => {
+    render(
+      <MemoryRouter initialEntries={['/harry']}>
+        <App />
+      </MemoryRouter>
+    );
+
+    expect(screen.getByText(/harry/i)).toBeInTheDocument();
+  });
+
+  test('displays "Page Not Found" for undefined routes', () => {
+    render(
+      <MemoryRouter initialEntries={['/non-existent-route']}>
+        <App />
+      </MemoryRouter>
+    );
+
+    expect(screen.getByText(/page not found/i)).toBeInTheDocument();
+  });
+});
